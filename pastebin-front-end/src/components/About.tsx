@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 import birdLogo from '/bird_logo.svg'
 
-
 export function About() {
     return (
         <body>

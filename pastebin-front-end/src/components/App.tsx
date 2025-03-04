@@ -4,6 +4,7 @@ import { Home } from './Home.tsx'
 import { About } from './About.tsx'
 import { Paste } from './Paste.tsx'
 
+
 export function App() {
     return (
     <Router>
