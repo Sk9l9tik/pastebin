@@ -5,33 +5,39 @@ import {Dropdown} from './Dropdown'
 
 import birdLogo from '/bird_logo.svg'
 
+interface Option {
+  name: string;
+  value: number;
+}
 
 export function Home() {
   const LIFE_TIMES  = [
-    { name: 'Option 1', value: 'option1' },
-    { name: 'Option 2', value: 'option2' },
-    { name: 'Option 3', value: 'option3' },
-    { name: 'Other', value: 'Other' } // Для кастомного поля нужен value == Other
+    { name: 'Option 1', value: 1 },
+    { name: 'Option 2', value: 2 },
+    { name: 'Option 3', value: 3 },
+    { name: 'Other', value: -1 } // Для кастомного поля нужен value == Other
   ];
 
   const ACCESS  = [
-    { name: 'Public', value: 'Public' },
-    { name: 'Private', value: 'Private' }
+    { name: 'Public', value: 0 },
+    { name: 'Private', value: 1 }
   ];
 
   const btn_text = "Share a masterpiece >";
 
   const [pasteContent, setPasteContent] = useState(''); // Для textarea
   const [title, setTitle] = useState(''); // Для input
-  const [lifetime, setLifetime] = useState<string | null>(null); // Для первого списка 
-  const [type, setType] = useState<string | null>(null); // Для второго списка
+  const [lifetime, setLifetime] = useState<Option | null>(null); // Для первого списка 
+  const [type, setType] = useState<Option | null>(null); // Для второго списка
 
   // Обработчик для кнопки Send
-  const handleSend = () => {
-    console.log('Paste Content:', pasteContent);
-    console.log('Title:', title);
-    console.log('Life Time:', lifetime);
-    console.log('Type:', type == 'Private' ? true : false);
+  const handleSend = () => { 
+    console.log({
+      'title': title,
+      'content': pasteContent,
+      'time': lifetime,
+      'access': type?.name == 'Private' ? true : false
+    })
   };
 
   return (
