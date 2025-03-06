@@ -1,22 +1,13 @@
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
-import birdLogo from '/bird_logo.svg'
+import {Header} from '../custom_components/Header'
 
 
 export function Paste() {
   const { id } = useParams();
   return (
     <>
-      <header className='header bg-[#383838] h-20 mb-25'>
-        <div className="flex justify-between ml-65 mr-65 pt-5.5">
-          <Link to="/" className='flex justify-between items-center'>
-            <img className="logo mr-2.5" src={birdLogo} alt='Pastebin logo' />
-            <p className="font-[IBM_Plex_Mono] font-medium text-[24px]">PasteBin</p>
-          </Link>
-          <Link to="/about" className="font-[Manjari] font-normal text-[18px] hover:text-blue-300 pt-1">ABOUT</Link>
-        </div>
-      </header>
+      <Header />
       <div className='paste ml-65 mr-65'>
         <div className='details pb-8 flex justify-start w-full'>
           {/*TODO: add avatars*/}

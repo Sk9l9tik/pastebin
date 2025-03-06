@@ -1,18 +1,10 @@
-import { Link } from 'react-router-dom';
+import {Header} from '../custom_components/Header'
 
-import birdLogo from '/bird_logo.svg'
 
 export function About() {
     return (
         <body>
-        <header className='header bg-[#383838] h-20'>
-          <div className="flex justify-between ml-65 mr-65 pt-5.5">
-            <Link to="/" className='flex justify-between'>
-              <img className="logo mr-2.5" src={birdLogo} alt='Pastebin logo'/>
-              <p className="font-[IBM_Plex_Mono] font-medium text-[24px]">PasteBin </p>
-            </Link>
-          </div>
-        </header>
+        <Header />
         <div className='ml-65 mr-65'>
             <div className="AboutPastebin  pt-10">
                 <p className="font-[IBM_Plex_Mono] font-bold text-3xl mb-3">About PasteBin:</p>

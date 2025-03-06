@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { Home } from './Home.tsx'
-import { About } from './About.tsx'
-import { Paste } from './Paste.tsx'
-import { Notfoutd } from './NotFound.tsx';
+import { Home } from './pages/Home.tsx'
+import { About } from './pages/About.tsx'
+import { Paste } from './pages/Paste.tsx'
+import { Notfoutd } from './pages/NotFound.tsx';
 
 
 export function App() {
