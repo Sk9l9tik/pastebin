@@ -104,7 +104,6 @@ export function InputWithDropdown({ options, placeHolder, onSelect, isReadOnly =
     setIsDropdownOpen(true); // Открываем выпадающий список при фокусе
     if (!isReadOnly) {
       setIsFocused(true); // Устанавливаем фокус
-      
     }
   };
 

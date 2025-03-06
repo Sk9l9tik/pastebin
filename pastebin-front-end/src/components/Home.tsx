@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-//import {Dropdown} from './Dropdown'
 import { InputWithDropdown } from './Dropdown'
 
 import birdLogo from '/bird_logo.svg'
@@ -93,7 +92,7 @@ export function Home() {
         </div>
         <button
           onClick={handleSend}
-          className="font-[IBM_Plex_Mono] font-medium Send w-64 h-12.5 bg-[#EDA200] mt-10 mb-10 rounded-sm text-black text-[19px] transform-view duration-300 ease-in-out hover:scale-101"
+          className="font-[IBM_Plex_Mono] font-medium Send w-64 h-12.5 bg-[#EDA200] mt-10 mb-10 rounded-sm text-black text-[19px] transform-view duration-300 ease-in-out hover:scale-102"
           type="submit">{btn_text}</button>
       </div>
       <footer className="copyright fixed inset-x-0 bottom-0 pb-1">
