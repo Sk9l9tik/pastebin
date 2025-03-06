@@ -13,6 +13,7 @@ interface Option {
 export function Home() {
   const LIFE_TIMES  = [
     { name: '1 minute', value: 60 },
+    { name: '10 minute', value: 600 },
     { name: '1 hour', value: 3600 },
     { name: '1 day', value: 86400 },
     { name: '1 week', value: 86400*7 },
@@ -24,8 +25,8 @@ export function Home() {
     { name: 'Private', value: 1 }
   ];
 
-
-  const btn_text = "Share a masterpiece >";
+  const BTNTEXT = 'Share a masterpiece';
+  const ARROW = '>';
 
   const [pasteContent, setPasteContent] = useState(''); // Для textarea
   const [title, setTitle] = useState(''); // Для input
@@ -48,9 +49,13 @@ export function Home() {
         <div className="flex justify-between ml-65 mr-65 pt-5.5">
           <Link to="/" className='flex justify-between items-center'>
             <img className="logo mr-2.5" src={birdLogo} alt='Pastebin logo' />
-            <p className="font-[IBM_Plex_Mono] font-medium text-[24px]">PasteBin</p>
+            <p className="font-[IBM_Plex_Mono] font-medium text-2xl">PasteBin</p>
           </Link>
-          <Link to="/about" className="font-[Manjari] font-normal text-[18px] hover:text-blue-300 pt-1">ABOUT</Link>
+          <div className='grid grid-cols-3 gap-5'>
+            <Link to="/about" className="font-[Manjari] font-normal text-[18px] hover:text-blue-300 pt-1 pb-1">ABOUT</Link>
+            <Link to="/login" className="font-[Manjari] font-normal text-[18px] pt-1 pb-1 border hover:rounded-sm w-20 text-center">Login</Link>
+            <Link to="/singup" className="font-[Manjari] font-normal text-black text-[18px] pt-1 pb-1 border hover:rounded-sm bg-white w-20 text-center">Sing up</Link>
+          </div>
         </div>
       </header>
       <div className='ml-65 mr-65'>
@@ -92,8 +97,11 @@ export function Home() {
         </div>
         <button
           onClick={handleSend}
-          className="font-[IBM_Plex_Mono] font-medium Send w-64 h-12.5 bg-[#EDA200] mt-10 mb-10 rounded-sm text-black text-[19px] transform-view duration-300 ease-in-out hover:scale-102"
-          type="submit">{btn_text}</button>
+          className="group btn font-[IBM_Plex_Mono] font-semibold Send w-64 h-12.5 bg-[#EDA200] mt-10 mb-10 rounded-sm text-black text-[19px] transform-view duration-300 ease-in-out hover:scale-102"
+          type="submit">
+          <span className='pl-2 group-hover:pl-0 duration-200 erase-in-out'> {BTNTEXT}</span>
+          <span className="invisible group-hover:visible group-hover:ml-2 duration-200 erase-in-out">{ARROW}</span>
+          </button>
       </div>
       <footer className="copyright fixed inset-x-0 bottom-0 pb-1">
         <p className="font-[IBM_Plex_Mono] font-light text-[12px] text-[#4e4e4e5e] text-center pb-0 select-none">© 2025 PasteIt, Inc All rights reserved.</p>
