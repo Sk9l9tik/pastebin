@@ -7,8 +7,9 @@ export function Paste() {
   const { id } = useParams();
   return (
     <>
-      <Header />
-      <div className='paste ml-65 mr-65'>
+      {/* TODO: make Adaptive */}
+      <Header className='mx-50 max-lg:mx-30 max-md:mx-15 max-xl:40 max-sm:mx-10'/>
+      <div className='paste mt-15 mx-50 max-lg:mx-30 max-md:mx-15 max-xl:40 max-sm:mx-10'>
         <div className='details pb-8 flex justify-start w-full'>
           {/*TODO: add avatars*/}
           <div className='avatar w-18 h-18 bg-gray-400' /> 
