@@ -115,7 +115,7 @@
     };
 
     return (
-      <div className="relative w-100 max-md:w-70" ref={dropdownRef}>
+      <div className="relative w-100 max-md:w-70 max-sm:w-50" ref={dropdownRef}>
         <div className="flex justify-between">
           <div className="bg-[#D9D9D9] w-64 h-10 text-gray-900 pl-3 pr-3 border rounded-sm flex justify-between items-center max-md:w-70 max-sm:w-65">
             <input
@@ -136,7 +136,7 @@
                 e.preventDefault();
                 setIsDropdownOpen(!isDropdownOpen);
               }}
-              className="max-md:absolute max-md:pl-35 w-8 h-full flex items-center justify-center hover:bg-gray-300 max-md:w-75">
+              className="max-md:absolute max-md:pl-35 sm:w-8 h-full flex items-center justify-center hover:bg-gray-300 max-md:w-75 max-sm:w-full max-sm:ml-4 ">
               {isDropdownOpen ? '▲' : '▼'}
             </button>
           </div>
