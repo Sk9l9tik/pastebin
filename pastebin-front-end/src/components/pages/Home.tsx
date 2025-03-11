@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Header } from '../custom_components/Header';
 import { InputWithDropdown } from '../custom_components/Dropdown';
+import axios from 'axios';
 
 interface Option {
   name: string;
@@ -32,18 +33,31 @@ export function Home() {
   const [type, setType] = useState<Option | null>(null); // Состояние для типа доступа
 
   // Обработчик отправки данных
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!title || !pasteContent || !lifetime || !type) {
       alert('Please fill all fields before submitting.');
       return;
     }
-
-    console.log({
+  
+    const data = {
       title,
       content: pasteContent,
-      time: lifetime,
+      time: lifetime.value,
       access: type.name === 'Private',
-    });
+    };
+      
+    try {
+      const response = await axios.post('http://127.0.0.1:8081/get-link', data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      console.log('Response from server:', response.data);
+      
+    } catch (error : any) {
+      console.error('Error', error.response ? error.response.data : error.messssage);
+    }
   };
 
   return (
