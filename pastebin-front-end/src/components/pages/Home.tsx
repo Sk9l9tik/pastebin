@@ -10,12 +10,12 @@ interface Option {
 
 // Константы для выпадающих списков
 const LIFE_TIMES: Option[] = [
-  { name: '1 minute', value: 60 },
-  { name: '10 minutes', value: 600 },
-  { name: '1 hour', value: 3600 },
-  { name: '1 day', value: 86400 },
-  { name: '1 week', value: 86400 * 7 },
-  { name: '1 month', value: 86400 * 30 },
+  { name: '1 minute', value: 60 * 1000 }, // В миллисекундах
+  { name: '10 minutes', value: 600 * 1000 },
+  { name: '1 hour', value: 3600 * 1000 },
+  { name: '1 day', value: 86400 * 1000 },
+  { name: '1 week', value: 86400 * 7 * 1000 },
+  { name: '1 month', value: 86400 * 30 * 1000 },
 ];
 
 const ACCESS: Option[] = [
@@ -38,25 +38,31 @@ export function Home() {
       alert('Please fill all fields before submitting.');
       return;
     }
-  
+
+    // Вычисляем временную метку и преобразуем её в строку
+    const expirationTimestamp = new Date(Date.now() + lifetime.value).toISOString();
+
     const data = {
       title,
       content: pasteContent,
-      time: lifetime.value,
+      expiration: expirationTimestamp, // Используем строку в формате ISO 8601
       access: type.name === 'Private',
+      user_id:0,
     };
-      
+
+    console.log(data);
+
     try {
       const response = await axios.post('http://127.0.0.1:8081/get-link', data, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
-      
+
       console.log('Response from server:', response.data);
-      
-    } catch (error : any) {
-      console.error('Error', error.response ? error.response.data : error.messssage);
+
+    } catch (error: any) {
+      console.error('Error', error.response ? error.response.data : error.message);
     }
   };
 
